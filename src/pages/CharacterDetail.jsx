@@ -28,7 +28,12 @@ const CharacterDetail = () => {
 			{character ? (
 				<div>
 					<h1>{character.name}</h1>
-					<img src={character.imageUrl} alt={character.name} />
+					{!character.imageUrl ? (
+						<h1>No image found</h1>
+					) : (
+						<img src={character.imageUrl} alt={character.name} />
+					)}
+					{/* <img src={character.imageUrl} alt={character.name} /> */}
 					<p>{character.tvShows.join(", ")}</p>
 				</div>
 			) : (

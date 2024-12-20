@@ -28,6 +28,11 @@ const Home = () => {
 
 				// Store filtered characters in state
 				setCharacters(charactersWithImages);
+
+				// Automatically select the first character if available
+				if (charactersWithImages.length > 0) {
+					setSelectedCharacter(charactersWithImages[0]);
+				}
 			} catch (error) {
 				// Log any errors during the API request
 				console.error("Error fetching characters:", error);
@@ -79,7 +84,7 @@ const Home = () => {
 				{/* Dropdown for selecting a character by name */}
 				<select
 					onChange={(e) => selectCharacterById(e.target.value)}
-					defaultValue=""
+					value={selectedCharacter ? selectedCharacter._id : ""}
 				>
 					<option value="" disabled>
 						Select a character

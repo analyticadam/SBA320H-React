@@ -1,4 +1,4 @@
-// Home page of the app
+// Home.jsx
 import React, { useState, useEffect } from "react"; // Import React and hooks
 import axios from "axios"; // Import Axios for API requests
 import DisneyCard from "../components/DisneyCard"; // Import DisneyCard component
@@ -6,12 +6,24 @@ import TVBackground from "../components/TVBackground"; // Import TVBackground co
 
 // Home component to display Disney characters inside the TV screen
 const Home = () => {
-	// State to hold the filtered list of Disney characters with images
+	// State to hold the filtered list of Disney characters with valid images
 	const [characters, setCharacters] = useState([]);
 	// State to store the currently displayed character
 	const [selectedCharacter, setSelectedCharacter] = useState(null);
 	// State to track the loading status
 	const [loading, setLoading] = useState(true);
+
+	// Helper function to check if an image URL is valid
+	const isValidImageUrl = async (url) => {
+		try {
+			// Perform a HEAD request to check if the image URL is valid
+			const response = await fetch(url, { method: "HEAD" });
+			return response.ok; // Returns true if the response status is 200-299
+		} catch {
+			// Return false if the request fails
+			return false;
+		}
+	};
 
 	// Fetch Disney characters when the component loads
 	useEffect(() => {
@@ -21,17 +33,23 @@ const Home = () => {
 				const response = await axios.get("https://api.disneyapi.dev/character");
 				const characterList = response.data.data; // Extract character list from response
 
-				// Filter out characters without valid images
-				const charactersWithImages = characterList.filter(
-					(character) => character.imageUrl
-				);
+				// Filter characters with valid images
+				const charactersWithValidImages = [];
+				for (const character of characterList) {
+					if (
+						character.imageUrl &&
+						(await isValidImageUrl(character.imageUrl))
+					) {
+						charactersWithValidImages.push(character);
+					}
+				}
 
-				// Store filtered characters in state
-				setCharacters(charactersWithImages);
+				// Update state with filtered characters
+				setCharacters(charactersWithValidImages);
 
 				// Automatically select the first character if available
-				if (charactersWithImages.length > 0) {
-					setSelectedCharacter(charactersWithImages[0]);
+				if (charactersWithValidImages.length > 0) {
+					setSelectedCharacter(charactersWithValidImages[0]);
 				}
 			} catch (error) {
 				// Log any errors during the API request
@@ -83,7 +101,10 @@ const Home = () => {
 			<div className="controls">
 				{/* Dropdown for selecting a character by name */}
 				<select
-					onChange={(e) => selectCharacterById(e.target.value)}
+					onChange={(e) => {
+						const characterId = e.target.value; // Get the selected character ID
+						selectCharacterById(characterId); // Update the selected character state
+					}}
 					value={selectedCharacter ? selectedCharacter._id : ""}
 				>
 					<option value="" disabled>

@@ -1,10 +1,33 @@
-/* Ensure button is at the bottom center of the TV screen */
+/* Container for the TV background */
+.tv-background {
+	position: relative; /* Position elements absolutely within */
+	width: 100%; /* Occupy full width */
+	height: 100vh; /* Full viewport height */
+	background: black; /* Black background for the TV */
+	display: flex;
+	justify-content: center; /* Center horizontally */
+	align-items: center; /* Center vertically */
+}
+
+/* Simulated TV screen */
+.tv-screen {
+	position: relative;
+	width: 80%; /* TV screen width */
+	height: 60%; /* TV screen height */
+	border: 5px solid #333; /* Dark border for realism */
+	border-radius: 15px; /* Rounded edges for the TV frame */
+	background: #000;
+	overflow: hidden; /* Clip overflowing content */
+	box-shadow: 0 0 20px rgba(0, 0, 0, 0.8); /* Shadow effect for the TV */
+}
+
+/* Button positioned at the bottom center of the TV */
 .button-container {
 	position: absolute;
 	bottom: 10%; /* Position near the bottom */
 	left: 50%; /* Center horizontally */
-	transform: translateX(-50%); /* Adjust for centering */
-	text-align: center; /* Center content */
+	transform: translateX(-50%);
+	text-align: center;
 }
 
 .button-container button {
@@ -36,4 +59,38 @@
 	font-size: 16px;
 	border-radius: 5px;
 	border: 1px solid #ccc;
+}
+
+/* Styles for the Disney Card */
+.disney-card {
+	text-align: center; /* Center the content */
+	color: white; /* White text for contrast */
+	margin: 20px; /* Add space around the card */
+}
+
+.disney-card img {
+	max-width: 80%; /* Ensure the image fits within the card */
+	height: auto; /* Maintain aspect ratio */
+	border-radius: 8px; /* Add rounded corners */
+	margin-bottom: 10px; /* Add space below the image */
+}
+
+.disney-card h3 {
+	font-size: 24px; /* Larger font for the character name */
+	margin: 10px 0; /* Add space above and below */
+}
+
+.disney-card h4 {
+	font-size: 20px; /* Font size for subheadings */
+	margin: 10px 0; /* Add space above and below */
+}
+
+.disney-card ul {
+	list-style: none; /* Remove bullet points */
+	padding: 0; /* Remove padding */
+}
+
+.disney-card li {
+	font-size: 16px; /* Font size for list items */
+	margin: 5px 0; /* Add space between list items */
 }

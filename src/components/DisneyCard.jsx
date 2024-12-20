@@ -1,4 +1,4 @@
-// Card component to display a single Disney character
+// DisneyCard.jsx
 import React from "react"; // Import React library
 
 // Component to render a card for a single Disney character
@@ -13,6 +13,30 @@ const DisneyCard = ({ character }) => {
 
 			{/* Display the character's name */}
 			<h3>{character.name}</h3>
+
+			{/* Display the character's movies if available */}
+			{character.films && character.films.length > 0 && (
+				<div>
+					<h4>Movies:</h4>
+					<ul>
+						{character.films.map((film, index) => (
+							<li key={index}>{film}</li>
+						))}
+					</ul>
+				</div>
+			)}
+
+			{/* Display the character's TV shows if available */}
+			{character.tvShows && character.tvShows.length > 0 && (
+				<div>
+					<h4>TV Shows:</h4>
+					<ul>
+						{character.tvShows.map((show, index) => (
+							<li key={index}>{show}</li>
+						))}
+					</ul>
+				</div>
+			)}
 		</div>
 	);
 };

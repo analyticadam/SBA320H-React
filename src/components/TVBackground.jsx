@@ -1,4 +1,4 @@
-// TVBackground component - creates the motion TV background
+// TVBackground.jsx
 import React from "react"; // Import React library
 import "./../styles/TVBackground.css"; // Import CSS for the TV background
 

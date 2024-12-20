@@ -1,9 +1,9 @@
 // Card component to display a single Disney character
 import React from "react"; // Import React library
 
-// Component to render a card for a Disney character
+// Component to render a card for a single Disney character
 const DisneyCard = ({ character }) => {
-	// Conditionally render nothing if the character does not have an image
+	// Ensure the component does not render if the character has no image
 	if (!character.imageUrl) return null;
 
 	return (

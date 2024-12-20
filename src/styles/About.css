@@ -1,0 +1,76 @@
+/* Container for the About page */
+.about-container {
+	text-align: center;
+	padding: 20px;
+	color: white;
+	background-color: #1a1a1a; /* Dark background for contrast */
+	min-height: 100vh; /* Ensure it covers the full screen height */
+	font-family: Arial, sans-serif;
+}
+
+/* Title styling */
+.about-container h1 {
+	font-size: 36px;
+	margin-bottom: 20px;
+}
+
+/* Paragraph styling */
+.about-container p {
+	font-size: 18px;
+	line-height: 1.6;
+	margin-bottom: 20px;
+}
+
+/* Trivia section */
+.trivia-section {
+	margin-top: 30px;
+}
+
+.trivia-section h2 {
+	font-size: 28px;
+	color: #646cff; /* Highlight color */
+	margin-bottom: 15px;
+}
+
+.trivia-section ul {
+	list-style: none;
+	padding: 0;
+}
+
+.trivia-section li {
+	font-size: 16px;
+	margin: 10px 0;
+}
+
+/* Back link styling */
+.back-link {
+	display: inline-block;
+	margin-top: 20px;
+	padding: 10px 20px;
+	font-size: 16px;
+	color: #fff;
+	background-color: #646cff;
+	text-decoration: none;
+	border-radius: 5px;
+	transition: background-color 0.3s;
+}
+
+.back-link:hover {
+	background-color: #535bf2; /* Darker hover color */
+}
+
+/* About link styling in Home */
+.about-link {
+	margin-top: 20px;
+	text-align: center;
+}
+
+.about-link a {
+	color: #646cff;
+	font-size: 16px;
+	text-decoration: none;
+}
+
+.about-link a:hover {
+	color: #535bf2; /* Slightly darker color on hover */
+}

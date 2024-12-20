@@ -1,13 +1,15 @@
-// Main application component
-import React from "react";
-import { RouterProvider } from "react-router"; // Import RouterProvider
-import router from "./router"; // Import the router configuration
+// App.jsx
+import React from "react"; // Import React library
+import AppRouter from "./router"; // Import the AppRouter component for routing
 
+// Main App component
 const App = () => {
 	return (
-		// Provide the router to enable navigation between pages
-		<RouterProvider router={router} />
+		<div>
+			{/* Render the AppRouter to handle navigation */}
+			<AppRouter />
+		</div>
 	);
 };
 
-export default App;
+export default App; // Export the main App component

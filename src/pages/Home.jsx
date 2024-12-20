@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react"; // Import React and hooks
 import axios from "axios"; // Import Axios for API requests
 import DisneyCard from "../components/DisneyCard"; // Import DisneyCard component
 import TVBackground from "../components/TVBackground"; // Import TVBackground component
+import { Link } from "react-router-dom"; // Import Link for navigation to other routes
 
 // Home component to display Disney characters inside the TV screen
 const Home = () => {
@@ -81,6 +82,17 @@ const Home = () => {
 
 	return (
 		<div>
+			{/* Title Section */}
+			<div className="page-title">
+				{/* Display the title of the page */}
+				<h1>Disney Character Viewer</h1>
+			</div>
+
+			{/* Navigation link to the About page */}
+			<div className="about-link">
+				<Link to="/about">Learn More About This App</Link>
+			</div>
+
 			{/* Render the TV background with content */}
 			<TVBackground>
 				{/* Show loading message while data is being fetched */}

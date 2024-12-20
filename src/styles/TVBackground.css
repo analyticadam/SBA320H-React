@@ -1,3 +1,13 @@
+/* Page Title */
+.page-title {
+	text-align: center; /* Center align the title */
+	color: black; /* White text for contrast against black background */
+	font-size: 36px; /* Larger font for prominence */
+	margin-top: 20px; /* Add spacing above the title */
+	margin-bottom: 20px; /* Add spacing below the title */
+	font-family: Arial, sans-serif; /* Clean font style */
+}
+
 /* Container for the TV background */
 .tv-background {
 	position: relative; /* Position elements absolutely within */
@@ -21,28 +31,61 @@
 	box-shadow: 0 0 20px rgba(0, 0, 0, 0.8); /* Shadow effect for the TV */
 }
 
-/* Button positioned at the bottom center of the TV */
+/* Content area within the TV screen with a visible scroll bar */
+.tv-content {
+	width: 100%; /* Occupy full width of the TV */
+	height: 100%; /* Occupy full height of the TV */
+	padding: 20px; /* Add padding for text */
+	overflow-y: scroll; /* Always show a vertical scroll bar */
+	overflow-x: hidden; /* Prevent horizontal scrolling */
+	color: white; /* White text for readability */
+	font-family: Arial, sans-serif; /* Font for clarity */
+	scrollbar-gutter: stable both-edges; /* Force scrollbar space always visible */
+}
+
+/* Customize the appearance of the scroll bar */
+.tv-content::-webkit-scrollbar {
+	width: 12px; /* Adjust the scrollbar width */
+	background: black; /* Match the TV background for track color */
+}
+
+.tv-content::-webkit-scrollbar-thumb {
+	background: white; /* White scrollbar thumb for visibility */
+	border-radius: 5px; /* Rounded edges for the thumb */
+}
+
+.tv-content::-webkit-scrollbar-thumb:hover {
+	background: #cccccc; /* Light gray color on hover for subtle effect */
+}
+
+/* For browsers without webkit-scrollbar support */
+.tv-content {
+	scrollbar-color: white black; /* Thumb color (white) followed by track color (black) */
+	scrollbar-width: thin; /* Use a thin scrollbar */
+}
+
+/* Button positioned at the center-left of the TV */
 .button-container {
 	position: absolute;
-	bottom: 10%; /* Position near the bottom */
-	left: 50%; /* Center horizontally */
-	transform: translateX(-50%);
-	text-align: center;
+	top: 50%; /* Center vertically */
+	left: 5%; /* Align to the left-hand side */
+	transform: translateY(-50%); /* Adjust for perfect vertical centering */
+	text-align: center; /* Center align the text inside the button */
 }
 
 .button-container button {
-	padding: 10px 20px;
-	font-size: 16px;
-	border-radius: 5px;
-	border: none;
-	background-color: #646cff;
-	color: white;
-	cursor: pointer;
-	transition: background-color 0.3s;
+	padding: 10px 20px; /* Add spacing inside the button */
+	font-size: 16px; /* Font size for readability */
+	border-radius: 5px; /* Rounded corners */
+	border: none; /* Remove default borders */
+	background-color: #646cff; /* Button background color */
+	color: white; /* White text for visibility */
+	cursor: pointer; /* Change cursor to pointer on hover */
+	transition: background-color 0.3s; /* Smooth transition effect */
 }
 
 .button-container button:hover {
-	background-color: #535bf2;
+	background-color: #535bf2; /* Darker background on hover */
 }
 
 /* Dropdown controls outside the TV screen */
@@ -66,6 +109,7 @@
 	text-align: center; /* Center the content */
 	color: white; /* White text for contrast */
 	margin: 20px; /* Add space around the card */
+	overflow-wrap: break-word; /* Wrap long text to prevent overflow */
 }
 
 .disney-card img {

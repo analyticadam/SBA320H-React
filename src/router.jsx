@@ -1,23 +1,24 @@
-// React router configuration
-import { createBrowserRouter } from "react-router";
-import Home from "./pages/Home"; // Import the Home page
-import About from "./pages/About"; // Import the About page
-import CharacterDetail from "./pages/CharacterDetail"; // Import the Character Detail page
+// router.jsx
+import React from "react"; // Import React library
+import { RouterProvider, createBrowserRouter } from "react-router"; // Import core react-router components
+import Home from "./pages/Home"; // Import the Home component
+import About from "./pages/About"; // Import the About component
 
-// Define routes for the app
+// Define the routes using createBrowserRouter
 const router = createBrowserRouter([
 	{
-		path: "/", // Route for the home page
-		element: <Home />,
+		path: "/", // Route for the Home page
+		element: <Home />, // Component to render for this route
 	},
 	{
-		path: "/about", // Route for the about page
-		element: <About />,
-	},
-	{
-		path: "/character/:id", // Dynamic route for character details
-		element: <CharacterDetail />,
+		path: "/about", // Route for the About page
+		element: <About />, // Component to render for this route
 	},
 ]);
 
-export default router;
+// AppRouter component to provide routing logic to the application
+const AppRouter = () => {
+	return <RouterProvider router={router} />;
+};
+
+export default AppRouter; // Export the AppRouter component
